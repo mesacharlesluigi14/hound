@@ -13,7 +13,7 @@ class CreateReturnsRequestTable extends Migration
      */
     public function up()
     {
-        Schema::create('returns_request', function (Blueprint $table) {
+        Schema::create('return_requests', function (Blueprint $table) {
             $table->id();
             $table->string('order_id');
             $table->string('user_id');
