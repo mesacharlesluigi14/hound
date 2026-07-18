@@ -18,6 +18,8 @@ DB_DATABASE = "database/database.sqlite"
 [phases.build]
 cmds = [
     "composer install --no-dev --optimize-autoloader",
+    "mkdir -p database && touch database/database.sqlite",
+    "php artisan migrate --force",
     "php artisan config:cache",
     "php artisan view:cache"
 ]

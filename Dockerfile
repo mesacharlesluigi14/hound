@@ -43,6 +43,9 @@ RUN mkdir -p storage/framework/cache/data \
 # Make sure SQLite database is available and has write permissions
 RUN mkdir -p database && touch database/database.sqlite && chmod -R 777 database
 
+# Run database migrations to apply any pending schema changes
+RUN php artisan migrate --force
+
 # Expose port (Railway sets $PORT dynamically)
 EXPOSE 8080
 
