@@ -7,6 +7,7 @@ NIXPACKS_PHP_ROOT_DIR = "/app/public"
 # Explicitly set PHP version to prevent builder parsing issues
 NIXPACKS_PHP_VERSION = "8.1"
 # Set production environment variables
+APP_KEY = "base64:33k/fp6r26oCVsXsyLyIsuBUAAIH/3GjOeid5WBIkO4="
 APP_ENV = "production"
 APP_DEBUG = "true"
 DB_CONNECTION = "sqlite"
