@@ -247,7 +247,7 @@
             <div class="dropdown-divider" style="margin: 0.5rem auto; width: 95%; height: 0.5px; background-color: #e0e0e0;"></div>
         @endforeach
     @else
-        <li><span class="dropdown-item">No notifications available.</span></li>
+        <li><span class="dropdown-item-text" style="color: #6c757d; font-size: 0.9rem; padding: 12px 15px; display: block; text-align: center;">No notifications available.</span></li>
     @endif
 </ul>
 
