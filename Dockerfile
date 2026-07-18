@@ -11,6 +11,13 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /app
 
+# Set default environment variables for production
+ENV APP_KEY="base64:33k/fp6r26oCVsXsyLyIsuBUAAIH/3GjOeid5WBIkO4="
+ENV APP_ENV="production"
+ENV APP_DEBUG="true"
+ENV DB_CONNECTION="sqlite"
+ENV DB_DATABASE="database/database.sqlite"
+
 # Copy composer from official image
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
