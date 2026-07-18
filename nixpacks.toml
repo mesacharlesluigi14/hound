@@ -6,9 +6,18 @@ providers = ["php"]
 NIXPACKS_PHP_ROOT_DIR = "/app/public"
 # Explicitly set PHP version to prevent builder parsing issues
 NIXPACKS_PHP_VERSION = "8.2"
+# Skip route caching — app has duplicate route names across role-based middleware groups (by design)
+SKIP_ROUTE_CACHE = "true"
 # Set production environment variables
 APP_KEY = "base64:33k/fp6r26oCVsXsyLyIsuBUAAIH/3GjOeid5WBIkO4="
 APP_ENV = "production"
 APP_DEBUG = "true"
 DB_CONNECTION = "sqlite"
 DB_DATABASE = "database/database.sqlite"
+
+[phases.build]
+cmds = [
+    "composer install --no-dev --optimize-autoloader",
+    "php artisan config:cache",
+    "php artisan view:cache"
+]
