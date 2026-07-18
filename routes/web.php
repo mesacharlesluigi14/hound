@@ -139,7 +139,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('admin-profile', [UserController::class, 'adminProfile'])->name('profile.admin');
     Route::put('admin-profile', [UserController::class, 'updateAdminProfile'])->name('profile.admin.update');
 
-    Route::get('/dashboard', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('/dashboard', [ReportController::class, 'index'])->name('reports.dashboard');
     Route::get('/report', [ReportModuleController::class, 'index'])->name('reports.index');
 
     Route::get('categories', 'App\Http\Controllers\Admin\CategoryController@index');
@@ -245,7 +245,7 @@ Route::middleware(['auth', 'role'])->group(function () {
 
 Route::middleware(['auth', 'role'])->group(function () {
     Route::get('/marketing-dashboard', [MarketingController::class, 'index'])->name('marketing.dashboard');
-    Route::get('/report', [ReportModuleController::class, 'index'])->name('reports.index');
+    Route::get('/report', [ReportModuleController::class, 'index'])->name('reports.marketing');
 
     Route::get('/coupons', [MarketingController::class, 'view'])->name('coupons.view');
     Route::get('/coupons/{id}/edit', [MarketingController::class, 'edit'])->name('coupons.edit');
@@ -269,7 +269,7 @@ Route::middleware(['auth', 'role'])->group(function () {
 // Store Manager Routes
 Route::middleware(['auth', 'role'])->group(function () {
    Route::get('/storemanager-dashboard', [StoreManagerController::class, 'index'])->name('storemanager.dashboard');
-   Route::get('/report', [ReportModuleController::class, 'index'])->name('reports.index');
+   Route::get('/report', [ReportModuleController::class, 'index'])->name('reports.storemanager');
    Route::get('categories', 'App\Http\Controllers\Admin\CategoryController@index');
    Route::get('add-category', 'App\Http\Controllers\Admin\CategoryController@add');
    Route::post('insert-category', 'App\Http\Controllers\Admin\CategoryController@insert');
