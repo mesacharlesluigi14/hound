@@ -1,0 +1,11 @@
+# Force Nixpacks to use the PHP provider and ignore package.json (Node.js)
+providers = ["php"]
+
+[variables]
+# Laravel's public directory is the web root
+NIXPACKS_PHP_ROOT_DIR = "/app/public"
+# Set production environment variables
+APP_ENV = "production"
+APP_DEBUG = "true"
+DB_CONNECTION = "sqlite"
+DB_DATABASE = "database/database.sqlite"
