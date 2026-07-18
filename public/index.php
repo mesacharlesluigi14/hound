@@ -1,5 +1,14 @@
 <?php
 
+// Copy the seeded SQLite database to writeable /tmp folder in Vercel
+if (isset($_SERVER['VERCEL']) || isset($_SERVER['NOW_REGION'])) {
+    $dbSrc = __DIR__ . '/../database/database.sqlite';
+    $dbDst = '/tmp/database.sqlite';
+    if (file_exists($dbSrc) && !file_exists($dbDst)) {
+        copy($dbSrc, $dbDst);
+    }
+}
+
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
