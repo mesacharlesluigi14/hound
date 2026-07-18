@@ -31,8 +31,16 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction
 RUN php artisan config:cache || true
 RUN php artisan view:cache || true
 
-# Make sure SQLite database is available
-RUN mkdir -p database && touch database/database.sqlite
+# Make sure storage and bootstrap cache directories exist with correct permissions
+RUN mkdir -p storage/framework/cache/data \
+             storage/framework/sessions \
+             storage/framework/views \
+             storage/logs \
+             bootstrap/cache \
+    && chmod -R 777 storage bootstrap/cache
+
+# Make sure SQLite database is available and has write permissions
+RUN mkdir -p database && touch database/database.sqlite && chmod -R 777 database
 
 # Expose port (Railway sets $PORT dynamically)
 EXPOSE 8080
