@@ -15,6 +15,7 @@ WORKDIR /app
 ENV APP_KEY="base64:33k/fp6r26oCVsXsyLyIsuBUAAIH/3GjOeid5WBIkO4="
 ENV APP_ENV="production"
 ENV APP_DEBUG="true"
+ENV APP_URL="https://hound-production-1928.up.railway.app"
 ENV DB_CONNECTION="sqlite"
 ENV DB_DATABASE="/app/database/database.sqlite"
 
