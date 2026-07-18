@@ -4,6 +4,8 @@ providers = ["php"]
 [variables]
 # Laravel's public directory is the web root
 NIXPACKS_PHP_ROOT_DIR = "/app/public"
+# Explicitly set PHP version to prevent builder parsing issues
+NIXPACKS_PHP_VERSION = "8.1"
 # Set production environment variables
 APP_ENV = "production"
 APP_DEBUG = "true"
